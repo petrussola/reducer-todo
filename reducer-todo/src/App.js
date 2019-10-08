@@ -14,7 +14,7 @@ import TodoList from './components/TodoList';
 import { todoContext } from './contexts/Todocontext';
 
 function App() {
-  const [todos, setTodos] = useReducer(reducer, initialState);
+  const [todos, dispatch] = useReducer(reducer, initialState);
 
   return (
     <div className="App">
