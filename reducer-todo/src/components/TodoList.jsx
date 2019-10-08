@@ -10,10 +10,13 @@ import { todoContext } from '../contexts/Todocontext';
 
 export default function TodoList() {
     
-    const {todos, markCompleted} = useContext(todoContext);
+    const {todos, markCompleted, clearCompleted} = useContext(todoContext);
 
   return (
     <div>
+        <div>
+            <button onClick={clearCompleted}>Clear completed</button>
+        </div>
         {
         todos.map(todo => {
             return <TodoItem 

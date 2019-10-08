@@ -3,7 +3,7 @@ import './App.css';
 
 // REDUCERS
 
-import { initialState, reducer, ON_WRITING_TASK, ON_ADDING_TASK, ON_CLEAR_TASK_TO_BE_ADDED, ON_MARKING_TASK_COMPLETE } from './reducers/reducer';
+import { initialState, reducer, ON_WRITING_TASK, ON_ADDING_TASK, ON_CLEAR_TASK_TO_BE_ADDED, ON_MARKING_TASK_COMPLETE, ON_CLEARING_COMPLETED } from './reducers/reducer';
 
 // COMPONENTS
 
@@ -58,6 +58,13 @@ function App() {
     })
   }
 
+  const clearCompleted = event => {
+    console.log('clearing completed');
+    dispatch({
+      type: ON_CLEARING_COMPLETED
+    })
+  }
+
   return (
     <div className="App">
       <todoContext.Provider value={{
@@ -65,7 +72,8 @@ function App() {
         addTodoItem, 
         onChange, 
         taskBeingAdded,
-        markCompleted
+        markCompleted, 
+        clearCompleted
         }}>
         <AddTodoForm />
         <TodoList />

@@ -13,6 +13,7 @@ export const ON_WRITING_TASK = 'ON_WRITING_TASK';
 export const ON_ADDING_TASK = 'ON_ADDING_TASK';
 export const ON_CLEAR_TASK_TO_BE_ADDED = 'ON_CLEAR_TASK_TO_BE_ADDED';  
 export const ON_MARKING_TASK_COMPLETE = 'ON_MARKING_TASK_COMPLETE';
+export const ON_CLEARING_COMPLETED = 'ON_CLEARING_COMPLETED';
 
 export function reducer(state, action) {
 
@@ -44,6 +45,13 @@ export function reducer(state, action) {
                     }
                 })
             };
+            case ON_CLEARING_COMPLETED:
+                return {
+                    ...state,
+                    initialTodoList: state.initialTodoList.filter( todo => {
+                        return todo.completed === false;
+                    })
+                }
         default:
             return;
     }
