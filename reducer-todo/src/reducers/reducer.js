@@ -40,7 +40,7 @@ export function reducer(state, action) {
                     return {
                         id: todo.id,
                         item: todo.item,
-                        complete: action.payload.completed,
+                        completed: action.payload.completed,
                     }
                 })
             };
