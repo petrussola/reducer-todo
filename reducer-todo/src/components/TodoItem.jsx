@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
+
 
 export default function TodoItem({todo}) {
+
     return (
         <div>
             <p>{todo.item}</p>

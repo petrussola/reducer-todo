@@ -10,7 +10,7 @@ import { todoContext } from '../contexts/Todocontext';
 
 export default function TodoList() {
     
-    const todos = useContext(todoContext);
+    const {todos} = useContext(todoContext);
 
   return (
     <div>
