@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from 'react';
+import React, { useReducer } from 'react';
 import './App.css';
 
 // REDUCERS
@@ -14,7 +14,7 @@ import TodoList from './components/TodoList';
 import { todoContext } from './contexts/Todocontext';
 
 function App() {
-  const [todos, setTodos] = useState(initialState);
+  const [todos, setTodos] = useReducer(reducer, initialState);
 
   return (
     <div className="App">
