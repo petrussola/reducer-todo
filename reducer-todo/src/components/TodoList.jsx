@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
+
+// COMPONENTS
+
 import TodoItem from "./TodoItem";
 
-export default function TodoList({ todos }) {
-    debugger
+// CONTEXTS
+
+import { todoContext } from '../contexts/Todocontext';
+
+export default function TodoList() {
+    
+    const todos = useContext(todoContext);
+
   return (
     <div>
         {
