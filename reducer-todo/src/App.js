@@ -3,7 +3,7 @@ import './App.css';
 
 // REDUCERS
 
-import { initialState, reducer } from './reducers/reducer';
+import { initialState, reducer, ON_WRITING_TASK, ON_ADDING_TASK, ON_CLEAR_TASK_TO_BE_ADDED } from './reducers/reducer';
 
 // COMPONENTS
 
@@ -18,14 +18,40 @@ function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const todos = state.initialTodoList;
+  const taskBeingAdded = state.todoAdded;
+
+  const onChange = event => {
+    // console.log(event.target.value);
+
+    dispatch({
+      type: ON_WRITING_TASK,
+      payload: event.target.value,
+    })
+  }
 
   const addTodoItem = event => {
-    console.log('yay');
+    event.preventDefault();
+    dispatch({
+      type: ON_ADDING_TASK,
+      payload: {
+        item: state.todoAdded,
+        completed: false,
+        id: 1,
+      },
+    })
+    clearTodoToBeAdded();
+  }
+
+  const clearTodoToBeAdded = () => {
+    dispatch({
+      type: ON_CLEAR_TASK_TO_BE_ADDED,
+      payload: '',
+    })
   }
 
   return (
     <div className="App">
-      <todoContext.Provider value={{todos, addTodoItem}}>
+      <todoContext.Provider value={{todos, addTodoItem, onChange, taskBeingAdded}}>
         <AddTodoForm />
         <TodoList />
       </todoContext.Provider>

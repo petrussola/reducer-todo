@@ -6,11 +6,11 @@ import { todoContext } from '../contexts/Todocontext';
 
 export default function AddTodoForm() {
 
-    const {addTodoItem} = useContext(todoContext);
+    const {addTodoItem, onChange, taskBeingAdded} = useContext(todoContext);
 
     return (
         <div>
-            <input type='text' />
+            <input type='text' value={taskBeingAdded} onChange={onChange} />
             <button onClick={addTodoItem}>Add todo</button>
         </div>
     )
