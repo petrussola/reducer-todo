@@ -36,7 +36,7 @@ function App() {
       payload: {
         item: state.todoAdded,
         completed: false,
-        id: 1,
+        id: Date.now(),
       },
     })
     clearTodoToBeAdded();
