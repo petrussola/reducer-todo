@@ -10,13 +10,17 @@ import { todoContext } from '../contexts/Todocontext';
 
 export default function TodoList() {
     
-    const {todos} = useContext(todoContext);
+    const {todos, markCompleted} = useContext(todoContext);
 
   return (
     <div>
         {
         todos.map(todo => {
-            return <TodoItem key={todo.id} todo={todo} />
+            return <TodoItem 
+            key={todo.id} 
+            todo={todo} 
+            markCompleted={markCompleted}
+            />
         })
         }
     </div>
